@@ -1,0 +1,20 @@
+article#samples>div#sample{
+    height:140px;
+    margin:20px 40px;
+    border-radius:20px;
+    overflow:hidden;
+    background-color:white;
+}
+
+article#samples>div#sample>div{
+    align-content:center;
+    justify-content:center;
+    position: relative;
+}
+
+article#samples>div#sample>div>image{
+    position:absolute;
+    width:100%;
+    left:0;
+}
+

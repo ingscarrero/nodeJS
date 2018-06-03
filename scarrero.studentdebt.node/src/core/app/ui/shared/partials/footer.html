@@ -1,0 +1,25 @@
+<section class="columns">
+    <ul>
+        <li ng-repeat="n in $ctrl.footer.items">
+            <a href="#!{{n.uril}}">
+                <span><b>
+                    {{n.caption}}
+                </b></span>
+            </a>
+            <ul>
+                <li ng-repeat="m in n.items">
+                    <a href="#!{{m.uri}}">{{m.caption}}</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</section>
+<section id="social-networks" class="center">
+    <a ng-repeat="sn in $ctrl.footer.socialNetworks" href="{{sn.url}}">
+        <img src="{{sn.img}}" alt="{{sn.provider}}" class="social-media">
+    </a>
+</section>
+<section id="copying-rights" class="center">
+    <span ng-repeat-start="line in $ctrl.footer.copyingRights" ng-bind-html="$ctrl.trustContent(line)"></span>
+    <br ng-repeat-end>
+</section>

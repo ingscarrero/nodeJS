@@ -1,0 +1,12 @@
+<section ng-controller="applyController as $ctrl">
+    <article ng-repeat="question in $ctrl.questionnaire track by $index">
+        <question ng-if="$index == $ctrl.activeQuestionIndex" 
+        content="$ctrl.content"
+        question="question" 
+        provider="$ctrl.providers[question.provider]" 
+        answer="question.answer"
+        on-next="$ctrl.submit(data)" 
+        on-back="$ctrl.back()" 
+        on-cancel="$ctrl.cancel()"></question>
+    </article>
+</section>

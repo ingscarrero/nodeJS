@@ -1,0 +1,67 @@
+<article>
+    <page-header content="$ctrl.content"></page-header>
+    <section class="question">
+        <header>
+            <img ng-src="{{$ctrl.question.topic.img}}">
+            <h1 ng-bind-html="$ctrl.trustContent($ctrl.question.topic.title)"></h1>
+            <p ng-bind-html="$ctrl.trustContent($ctrl.question.topic.detail)"></p>
+            <div class="separator"></div>
+        </header>
+        <form>
+            <div class=wrapper>
+                <header class="row">
+                    <div class="question-definition col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <span class="number centered" ng-bind="$ctrl.question.number" ></span>    
+                    </div>
+                    <div class="question-definition col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        <h1 ng-bind="$ctrl.question.title"></h1>
+                        <hr>
+                        <p ng-bind="$ctrl.question.stem"></p>    
+                    </div>
+                </header>    
+                <section class="row">
+                    <fieldset class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        <div class="form-group form-group-lg">
+                            <label ng-bind="$ctrl.question.caption"></label>
+                            
+                            <input class="form-control" ng-if="$ctrl.question.class=='open'" 
+                            type="$ctrl.question.type" 
+                            ng-model="$ctrl.answer">
+                            
+                            
+                            <select class="form-control" ng-if="$ctrl.question.class=='list'" ng-model="$ctrl.answer">
+                                <option ng-repeat="value in $ctrl.provider track by $index" value="{{value.key}}" ng-bind="value.value"></option>
+                            </select>
+                            
+                            <span ng-if="$ctrl.question.class=='radio'" ng-repeat="value in $ctrl.provider track by $index">
+                                <input  
+                                id="'radio_'{{$index}}"
+                                name="radio" 
+                                type="radio"  
+                                ng-model="$ctrl.answer"
+                                value="{{value.key}}">
+                                <label ng-bind="value.value" for="'radio_'{{$index}}"></label>
+                            </span>
+                            
+                            <span ng-if="$ctrl.question.class=='check'" ng-repeat="value in $ctrl.provider track by $index">
+                                <input
+                                id="'checkbox_'{{$index}}"
+                                type="checkbox" 
+                                ng-model="$ctrl.answer[value.key]"
+                                ng-true-value="'YES'" 
+                                ng-false-value="'NO'">
+                                <label ng-bind="value.value" for="'checkbox_'{{$index}}"></label>
+                            </span>
+                        </div>
+                    </fieldset>
+                    <div class="form-actions col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <button ng-repeat="action in $ctrl.question.actions" type="button" 
+                        ng-bind-html="$ctrl.trustContent(action.content)" 
+                        ng-click="$ctrl[action.target]($ctrl[action.parameters])" class="btn btn-primary btn-lg btn-block"></button>    
+                    </div>
+                </section>
+            </div>
+            
+        </form>
+    </section>
+</article>

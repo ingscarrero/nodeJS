@@ -1,0 +1,18 @@
+
+<article ng-controller="homeController as $ctrl" class="home">
+    <div>
+       <section class="home-content" ng-click="$ctrl.click()">
+        <!-- Company's Logo -->
+            <img ng-src="{{$ctrl.banner.owner.logo}}" class="logo">
+            <article>
+                <!-- Company's name -->
+                <h1 ng-bind="$ctrl.banner.owner.name"></h1>
+                <hr>
+                <!-- Company's slogan -->
+                <span ng-bind-html="$ctrl.banner.owner.detail"></span>
+                <!-- Section footer -->
+                <div class="separator"></div>
+            </article>
+        </section> 
+    </div>
+</article>

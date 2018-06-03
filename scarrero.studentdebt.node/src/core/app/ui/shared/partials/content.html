@@ -1,0 +1,30 @@
+<article class="content">
+    <page-header content="$ctrl.content"></page-header>
+    <section>
+        <header class="content-title">
+            <!-- Content's title -->
+            <h1 ng-bind-html="$ctrl.trustContent($ctrl.content.title)"></h1>
+            <!-- Content's detail -->
+            <p ng-bind-html="$ctrl.trustContent($ctrl.content.detail)"></p>
+        </header>
+        <section class="content-items row">
+            <div>
+                <!-- Content's items -->
+                <article ng-repeat="item in $ctrl.content.items" ng-init="i = $index"class="col-lg-6 col-md-6 col-sm-6 col-xs-12" ng-click="$ctrl.click(i)"> 
+                    <!-- Content's item -->
+                    <img ng-src="{{item.img}}">
+                    <!-- Content's item description -->
+                    <h2 ng-bind-html="$ctrl.trustContent(item.title)"></h2>
+                    <!-- Content's item description -->
+                    <p ng-bind-html="$ctrl.trustContent(item.detail)"></p>
+                </article>
+            </div>
+        </section>
+        <footer class="content-footer">
+            <!-- Content's footer -->
+            <p ng-bind-html="$ctrl.trustContent($ctrl.content.footer)"></p>
+            <!-- Section's separator -->
+            <div class="separator"/>
+        </footer>
+    </section>
+</article>

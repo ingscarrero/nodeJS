@@ -1,0 +1,2 @@
+export const MAX_RANDOM_STRING_LENGTH = 36;
+export const RANDOM_STRING_OFFSET = 2;

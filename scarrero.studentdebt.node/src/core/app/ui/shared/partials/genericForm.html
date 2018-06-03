@@ -1,0 +1,66 @@
+<article>
+    <page-header content="$ctrl.content"></page-header>
+    <section class="generic-form">
+        <header>
+            <img ng-src="{{$ctrl.formConfiguration.img}}">        
+            <h1 ng-bind-html="$ctrl.trustContent($ctrl.formConfiguration.title)"></h1>
+            <p ng-bind-html="$ctrl.trustContent($ctrl.formConfiguration.detail)"></p>
+            <div class="separator"></div>
+        </header>
+        <form>
+            <div class="wrapper">
+                <section>
+                    <fieldset class="form-horizontal">
+                        <div ng-repeat="field in $ctrl.formConfiguration.fields" class="form-group form-group-lg">
+
+                            <label class="control-label col-sm-4" ng-bind-html="$ctrl.trustContent(field.caption)+':'"></label>
+
+                            <div class="col-sm-8">
+                                <input class="form-control"
+                                    ng-if="field.class=='open'" 
+                                    type="field.type" 
+                                    ng-model="$ctrl.model[field.name]">
+                                    
+                                    
+                                    <select class="form-control"
+                                    ng-if="field.class=='list'" 
+                                    ng-model="$ctrl.model[field.name]">
+                                        <option ng-repeat="value in $ctrl.providers[field.provider]" value="{{value.key}}" ng-bind-html="$ctrl.trustContent(value.value)"></option>
+                                    </select>
+                                    
+                                    <span 
+                                        ng-if="field.class=='radio'" ng-repeat="value in $ctrl.providers[field.provider] track by $index">
+                                        <input  
+                                        id="radio_{{field.name}}_{{$index}}"
+                                        name="{{field.name}}" 
+                                        type="radio"  
+                                        ng-model="$ctrl.model[field.name]"
+                                        value="{{value.key}}">
+                                        <label ng-bind-html="$ctrl.trustContent(value.value)" for="radio_{{field.name}}_{{$index}}"></label>
+                                    </span>
+                                    
+                                    <span
+                                        ng-if="field.class=='check'" ng-repeat="value in $ctrl.providers[field.provider] track by $index">
+                                        <input
+                                        id="checkbox_{{field.name}}_{{$index}}"  
+                                        type="checkbox" 
+                                        ng-model="$ctrl.model[field.name][value.key]"
+                                        ng-true-value="'YES'" 
+                                        ng-false-value="'NO'">
+                                        <label ng-bind-html="$ctrl.trustContent(value.value)" for="checkbox_{{field.name}}_{{$index}}"></label>
+                                    </span>
+                            </div>        
+                            
+                        </div>
+                    </fieldset>
+                    <hr>
+                    <div class="form-actions">
+                        <button ng-repeat="action in $ctrl.formConfiguration.actions" type="button" ng-bind-html="$ctrl.trustContent(action.content)" ng-click="$ctrl[action.target]($ctrl[action.parameters])" class="btn btn-primary btn-lg btn-block"></button>    
+                    </div>
+                </section>
+            </div>
+            
+        </form>
+    </section>
+    
+</article>

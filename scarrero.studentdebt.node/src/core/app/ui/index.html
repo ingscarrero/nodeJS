@@ -1,0 +1,28 @@
+<!doctype html>
+
+<html ng-app="debtPlatform">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-resource.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-messages.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.min.js"></script>
+        <script src="/debt-platform.js"></script>
+        <script src="/shared/scripts/components/dp-util.js"></script>
+        <script src="/shared/scripts/services/dp-services.js"></script>
+        <script src="/shared/scripts/controllers/dp-common.js"></script>
+        <script src="/company/scripts/controllers/dp-company.js"></script>
+        <script src="/debt/scripts/controllers/dp-debt.js"></script>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/stylesheets/style.css" rel="stylesheet" type='text/css'>
+    </head>
+    <body ng-controller="indexController as $ctrl">
+        <section ng-view class="content-wrapper">
+        </section>
+        <footer class="main">
+            <page-footer footer="$ctrl.footer"></page-footer>
+        </footer>
+    </body>
+</html>

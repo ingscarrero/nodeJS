@@ -1,0 +1,12 @@
+<article>
+    <div div ng-if="$ctrl.data && $ctrl.data.lenght > 0" ng-repeat="item in $ctrl.data track by $index">
+        <!-- <image src="item.albumImageUri"/> -->
+        <h1 ng-bind="item.name"/>
+        <h2 ng-bind="item.artistsText"/>
+        <h3 ng-bind="item.genresText"/>
+        <p ng-bind="item.elapsed"/>
+    </div>
+    <div div ng-if="!$ctrl.data || $ctrl.data.lenght = 0">
+        NO DATA
+    </div>
+</article>

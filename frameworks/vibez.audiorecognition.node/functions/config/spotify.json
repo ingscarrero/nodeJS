@@ -1,0 +1,8 @@
+{
+    "client_id":"c1c4f84107804f719f1cc65d881e08fc",
+    "client_secret":"f752cb07396f443fb5c0b3ee67d28010",
+    "endpoints": {
+        "auth":"https://accounts.spotify.com/api/token",
+        "track":"https://api.spotify.com/v1/tracks/"
+    }
+}

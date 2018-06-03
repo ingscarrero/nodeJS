@@ -1,0 +1,12 @@
+<section ng-controller="registerController as $ctrl">
+    <generic-form
+        content="$ctrl.content"
+        providers="$ctrl.providers" 
+        form-configuration="$ctrl.formConfiguration"
+        providers="$ctrl.providers"
+        model="$ctrl.model"
+        on-Submit="$ctrl.submit(data)" 
+        on-back="$ctrl.back()" 
+        on-cancel="$ctrl.cancel()"
+    ></generic-form>
+</section>
