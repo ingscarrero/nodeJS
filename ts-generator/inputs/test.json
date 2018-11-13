@@ -1,0 +1,57 @@
+{
+    "name": "Test",
+    "outputFolder": "./outputs",
+    "entities": [{
+            "name": "Cart",
+            "description": "Represents a cart data",
+            "dependencies": [{
+                "alias": "Data",
+                "path": "data/lib"
+            }],
+            "extends": null,
+            "fields": [{
+                    "name": "id",
+                    "type": "string",
+                    "required": true,
+                    "description": "Document identifier for later reference"
+                },
+                {
+                    "name": "store",
+                    "type": "string",
+                    "required": true,
+                    "description": "Identifier of the store linked to the cart"
+                },
+                {
+                    "name": "audit",
+                    "type": "Data.Audit",
+                    "description": "Auditing information"
+                },
+                {
+                    "name": "status",
+                    "type": "string",
+                    "required": true,
+                    "description": "Cart status in the process flow",
+                    "values": ["NEW", "IN_PROCESS", "ABANDONED", "FULFILLED"]
+                }
+            ]
+        },
+        {
+            "name": "Cart Item",
+            "description": "Represents a cart item data",
+            "extends": null,
+            "fields": [{
+                    "name": "id",
+                    "type": "string",
+                    "required": true,
+                    "description": "Document identifier for later reference"
+                },
+                {
+                    "name": "cart",
+                    "type": "string",
+                    "required": true,
+                    "description": "Identifier of the cart linked to the item"
+                }
+            ]
+        }
+    ]
+}

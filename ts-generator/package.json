@@ -1,0 +1,29 @@
+{
+  "name": "ts-generator",
+  "version": "1.0.0",
+  "description": "Tool for generating backend code",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -r ts-node/register test/**/*.spec.ts",
+    "start": "node ./bin/index.js",
+    "debug": "nodemon --watch ./bin --inspect=9222 --nolazy ./bin/index.js"
+  },
+  "keywords": [
+    "ts",
+    "gen"
+  ],
+  "author": "sergio.ivan.carrero@outlook.com",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^5.5.7",
+    "firebase-admin": "^6.1.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.5",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.1.6"
+  }
+}

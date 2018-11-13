@@ -1,0 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var AccessControlledEntityStore_1 = require("./AccessControlledEntityStore");
+exports.AccessCotrolledEntityStore = AccessControlledEntityStore_1.AccessCotrolledEntityStore;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi9zcmMvZnJhbWV3b3JrL3NlY3VyaXR5L2luZGV4LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkVBQStGO0FBQXRGLG1FQUFBLDBCQUEwQixDQUFBIn0=
