@@ -17,7 +17,7 @@ export declare class User implements IUser {
      *
      */
     constructor();
-    static factory(context: IContext, data?: IUser, trace?: Array<IAuditEvent<IUser>>): ComponentFactory;
+    static factory(context: IContext, data?: IUser, trace?: Array<IAuditEvent<IUser>>): UserFactory;
 }
 export declare class UserFactory extends Auditable<IUser> {
 }
