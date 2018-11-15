@@ -8,6 +8,14 @@ export interface IUser extends IDocument {
     name: string;
     password: string;
 }
+export interface ITest extends IDocument {
+    name: string;
+}
+export declare class Test implements ITest {
+    readonly name: string;
+    constructor();
+    static factory(context: IContext, data?: ITest, trace?: Array<IAuditEvent<ITest>>): TestFactory;
+}
 export declare class User implements IUser {
     readonly name: string;
     readonly password: string;
@@ -18,6 +26,8 @@ export declare class User implements IUser {
      */
     constructor();
     static factory(context: IContext, data?: IUser, trace?: Array<IAuditEvent<IUser>>): UserFactory;
+}
+export declare class TestFactory extends Auditable<ITest> {
 }
 export declare class UserFactory extends Auditable<IUser> {
 }

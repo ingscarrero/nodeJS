@@ -12,6 +12,22 @@ export interface IUser extends IDocument {
     password: string;
 };
 
+export interface ITest extends IDocument {
+    name: string;
+};
+
+
+export class Test implements ITest {
+    readonly name: string;
+
+    constructor() {
+        this.name = "";
+    }
+
+    public static factory(context: IContext, data?: ITest, trace?: Array<IAuditEvent<ITest>>): TestFactory {
+        return new TestFactory(context, data || new Test(), trace);
+    }
+}
 export class User implements IUser {
     readonly name: string;
     readonly password: string;
@@ -37,6 +53,10 @@ export class User implements IUser {
 
 }
 
+export class TestFactory extends Auditable<ITest> {
+
+}
+
 export class UserFactory extends Auditable<IUser> {
 
 }
@@ -45,7 +65,10 @@ export class ComponentFactory extends Entity<IUser> {
 
 }
 
+
 function test() {
+    Entity.register("user", (context: IContext, data?: IUser) => User.factory(context, data));
+    Entity.register("test", (context: IContext, data?: ITest) => Test.factory(context, data));
 
     const context = {
         actor: "Mocha",
@@ -59,21 +82,34 @@ function test() {
         password: "123456"
     } as IUser;
 
+    const testJSON = {
+        name: "Paola"
+    } as ITest;
+
+    let userEntity = Entity.use("user", context
+        , userJSON);
+    let testEntity = Entity.use("test", context
+        , testJSON);
+
     // let user = User.builder()
     //     .setProperty("name", userJSON["name"])
     //     .setProperty("password", userJSON["password"]);
 
     // let userBuilder = Object.keys(userJSON).map(k => <keyof IUser>k).reduce((prev: UserBuilder, next) => prev.(next, userJSON[next]), User.builder());
 
-    const userFactory = User.factory(context, userJSON);
 
-    console.log(userFactory.getState());
+    console.log(userEntity.getState());
+    console.log(testEntity.getState());
 
-    userFactory.setState({
+    userEntity.setState({
         name: "Sergio Ivan",
-        password: "12234214"
     });
-    console.log(userFactory.getState());
+
+    testEntity.setState({
+        name: "Paola Bonilla",
+    });
+    console.log(userEntity.getState());
+    console.log(testEntity.getState());
 }
 
 test();
